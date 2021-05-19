@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class Bal : MonoBehaviour
 {
+    private UImanager uImanager;
     void Start()
     {
-        
+        uImanager = FindObjectOfType<UImanager>();
+        uImanager.enabled = false;
     }
 
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Brick"))
+        if (collision.gameObject.CompareTag("Brick"))
         {
-            Destroy(other.gameObject);
+            uImanager.AddScore(200);
+            Destroy(collision.gameObject);
         }
     }
 }
