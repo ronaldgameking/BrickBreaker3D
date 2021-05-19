@@ -5,19 +5,24 @@ using UnityEngine;
 public class SimpleMover : MonoBehaviour
 {
     public Vector3 direction;
+    public Rigidbody rb;
     public float speed = 10;
-    
+
+    private bool move = true;
     private float frameTick = 0;
 
     private void Update()
     {
-        if (frameTick == speed)
+        if (move)
         {
-
-            frameTick = 0;
-            return;
+            if (frameTick == speed)
+            {
+                rb.AddForce(direction);
+                frameTick = 0;
+                return;
+            }
+            frameTick++;
         }
-        frameTick++;
     }
 
     private void OnDrawGizmosSelected()

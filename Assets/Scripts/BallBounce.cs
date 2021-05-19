@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class BallBounce : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.collider.CompareTag("Wall"))
+        {
+            Debug.LogWarning(Vector3.Reflect(Vector3.up, collision.transform.position));
+        }    
     }
 }
