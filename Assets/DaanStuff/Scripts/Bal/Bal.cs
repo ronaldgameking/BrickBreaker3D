@@ -18,7 +18,7 @@ public class Bal : MonoBehaviour
     {
         if(other.CompareTag("Brick"))
         {
-            Destroy(other);
+            Destroy(other.gameObject);
         }
     }
 }
