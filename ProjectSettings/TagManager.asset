@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - DeathBarrier
+  - Brick
   layers:
   - Default
   - TransparentFX
