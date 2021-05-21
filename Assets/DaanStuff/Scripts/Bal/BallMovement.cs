@@ -24,7 +24,7 @@ public class BallMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            speed = -6;
+            speed = 6;
         }
 
         if (collision.gameObject.CompareTag("Brick"))
@@ -34,16 +34,16 @@ public class BallMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("LeftWall"))
         {
             Debug.Log("contact with leftwall");
-            rotation = -6;
+            rotation = 6;
         }
         if (collision.gameObject.CompareTag("RightWall"))
         {
             Debug.Log("contact with rightwall");
-            rotation = 6;
+            rotation = -6;
         }
-        if (collision.gameObject.CompareTag("FrontWall"))
+        if (collision.gameObject.CompareTag("BackWall"))
         {
-            speed = 6;
+            speed = -6;
         }
     }
 }
