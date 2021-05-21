@@ -4,10 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UImanager : MonoBehaviour
 {
+    public static UImanager Instance { get; private set; }
+
     [SerializeField] private Text scoreText;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
+        GameManager.Instance.OnGameOver += ShowDeathScreen;
         AddScore(0);
     }
 
@@ -15,5 +23,10 @@ public class UImanager : MonoBehaviour
     {
         GameManager.Instance.Score = GameManager.Instance.Score + amount;
         scoreText.text = "" + GameManager.Instance.Score;
+    }
+
+    public void ShowDeathScreen()
+    {
+
     }
 }
