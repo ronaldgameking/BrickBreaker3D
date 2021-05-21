@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Transform eggStart;
 
     public float speed = 5f;
-    public int force = 10;
+    public int force = 6;
     public bool Inverted = false;
 
     private bool isPlaying = false;
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                egg.GetComponent<BallSystem>().Launch(force);
+                egg.GetComponent<BallMovement>().Launch(force);
                 isPlaying = true;
             }
         }
