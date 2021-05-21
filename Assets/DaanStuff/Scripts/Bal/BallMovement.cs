@@ -11,8 +11,6 @@ public class BallMovement : MonoBehaviour
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        speed = 6;
-        rotation = 6;
     }
 
     private void Update()
@@ -45,6 +43,12 @@ public class BallMovement : MonoBehaviour
         {
             speed = -6;
         }
+    }
+
+    public void Launch(int force)
+    {
+        speed = force;
+        rotation = Random.Range(-7,7);
     }
 }
 
