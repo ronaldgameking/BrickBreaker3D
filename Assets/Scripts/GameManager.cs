@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public VideoPlayer vp;
     public GameObject vidProj;
+    public GameObject winproj;
     public int videoDelay = -10;
     public int bricksLeft;
 
@@ -65,6 +66,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void CheckIfDone()
-    { 
+    {
+        if (bricksLeft <= 0)
+        {
+            winproj.SetActive(true);
+            PlayerController.Instance.enabled = false;
+        }
     }
 }

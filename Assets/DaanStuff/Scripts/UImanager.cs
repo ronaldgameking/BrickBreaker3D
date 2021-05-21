@@ -2,15 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 public class UImanager : MonoBehaviour
 {
     public static UImanager Instance { get; private set; }
 
+    public TextMeshProUGUI scoretextTmpro;
     [SerializeField] private Text scoreText;
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
     private void Start()
@@ -22,7 +32,15 @@ public class UImanager : MonoBehaviour
     public void AddScore(int amount)
     {
         GameManager.Instance.Score = GameManager.Instance.Score + amount;
-        scoreText.text = "" + GameManager.Instance.Score;
+        if (scoretextTmpro != null)
+        {
+            scoretextTmpro.text = GameManager.Instance.Score.ToString();
+
+        }
+        else
+        {
+            scoreText.text = "" + GameManager.Instance.Score;
+        }
     }
 
     public void ShowDeathScreen()

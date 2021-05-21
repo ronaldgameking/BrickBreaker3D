@@ -8,6 +8,8 @@ public class BallMovement : MonoBehaviour
     public int speed;
     public int rotation;
 
+    public float multiplier = 1;
+
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -15,7 +17,7 @@ public class BallMovement : MonoBehaviour
 
     private void Update()
     {
-        rb.velocity = new Vector3(rotation, rb.velocity.y, speed);
+        rb.velocity = new Vector3(rotation, rb.velocity.y, speed) * multiplier;
     }
 
     private void OnCollisionEnter(Collision collision)
