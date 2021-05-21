@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bal : MonoBehaviour
+public class Ball : MonoBehaviour
 {
     private UImanager uImanager;
     void Start()
