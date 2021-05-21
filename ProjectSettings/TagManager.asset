@@ -4,10 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Wall
-  - DeathBarrier
   - Brick
-  - Ball
+  - Wall
+  - LeftWall
+  - RightWall
+  - BackWall
   layers:
   - Default
   - TransparentFX
