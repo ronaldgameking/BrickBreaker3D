@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    private UImanager uImanager;
     void Start()
     {
-        uImanager = FindObjectOfType<UImanager>();
-        uImanager.enabled = false;
+        if (UImanager.Instance != null) UImanager.Instance.enabled = false;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Brick"))
         {
-            uImanager.AddScore(200);
+            if (UImanager.Instance != null) UImanager.Instance.AddScore(200);
+            GameManager.Instance.bricksLeft--;
+            GameManager.Instance.CheckIfDone();
             Destroy(collision.gameObject);
         }
     }

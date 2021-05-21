@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+
     public Rigidbody rb;
     public Transform egg;
     public Transform eggStart;
@@ -13,6 +15,18 @@ public class PlayerController : MonoBehaviour
     public bool Inverted = false;
 
     private bool isPlaying = false;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Update()
     {
@@ -28,5 +42,10 @@ public class PlayerController : MonoBehaviour
         }
 
         rb.velocity = (Inverted ? Vector3.left :Vector3.right) * Input.GetAxisRaw("Horizontal") * speed;
+    }
+
+    public void SetIsPlaying(bool val)
+    {
+        isPlaying = val;
     }
 }
